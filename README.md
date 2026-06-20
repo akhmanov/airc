@@ -23,30 +23,34 @@ exec air \
 ```
 
 ## usage
+Available image tags:
+- `akhmanov/airc:go1.26.4` - pinned Go 1.26.4 image
+- `akhmanov/airc:latest` - latest published image
+
 ```yml
 # docker-compose.yml
 
 services:
   httpapi:
-    image: bulatsan/airc:latest
+    image: akhmanov/airc:latest
     environment:
       AIRC_SRC: ./cmd/httpapi/main.go
     # ... 
 
   grpcapi:
-    image: bulatsan/airc:latest
+    image: akhmanov/airc:latest
     environment:
       AIRC_SRC: ./cmd/grpcapi/main.go
     # ...
 
   redisworker:
-    image: bulatsan/airc:latest
+    image: akhmanov/airc:latest
     environment:
       AIRC_SRC: ./cmd/redisworker/main.go
     # ...
 
   kafkaconsumer:
-    image: bulatsan/airc:latest
+    image: akhmanov/airc:latest
     # if you need more advanced behaviour you can easily provide your own air arguments
     command: >-
       -build.bin "./tmp/main"

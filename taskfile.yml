@@ -1,13 +1,15 @@
 version: "3"
 
 vars:
-  version: v0.0.15
+  image: akhmanov/airc
+  go_version: 1.26.4
+  tag: go{{.go_version}}
 
 tasks:
   build: >-
     docker build
-    -t bulatsan/airc:{{.version}}
-    -t bulatsan/airc:latest
+    -t {{.image}}:{{.tag}}
+    -t {{.image}}:latest
     -f ./Dockerfile .
 
   buildx: >-
@@ -19,7 +21,7 @@ tasks:
   push: >-
     docker buildx build
     --platform linux/amd64,linux/arm64,linux/arm/v7
-    -t bulatsan/airc:{{.version}}
-    -t bulatsan/airc:latest
+    -t {{.image}}:{{.tag}}
+    -t {{.image}}:latest
     -f ./Dockerfile
     --push .
