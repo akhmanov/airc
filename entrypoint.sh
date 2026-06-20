@@ -11,6 +11,7 @@ exec air \
   -root                 "$AIRC_ROOT" \
   -tmp_dir              "$AIRC_TMP_DIR" \
   -build.bin            "$AIRC_BIN" \
+  -build.entrypoint     "$AIRC_BIN" \
   -build.cmd            "$AIRC_CMD" \
   -build.delay          "$AIRC_DELAY" \
   -build.send_interrupt "true" \
